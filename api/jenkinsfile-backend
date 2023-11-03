@@ -38,7 +38,7 @@ stages {
     stage('creating the database container') {
         steps {
             sh 'docker rm --force akhilteja87/lmsdb'
-            sh 'docker container run -d -p 5432:5432 --network lmsnetwork -e POSTGRES_PASSWORD-password --name lmsdb postgres'
+            sh 'docker container run -d -p 5432:5432 --network lmsnetwork -e POSTGRES_PASSWORD=password --name lmsdb postgres'
         }
     }
 
