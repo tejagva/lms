@@ -3,8 +3,6 @@ pipeline {
     agent{
         labels 'docker'
     }
-}
-
 enevironment {
 
     DOCKERHUB_CREDENTIALS = credentials('dockeruser')
