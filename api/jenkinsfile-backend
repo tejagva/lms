@@ -6,11 +6,7 @@ pipeline {
 
 environment {
 
-    DOCKERHUB_CREDENTIALS = credentials('dockeruser')
-    registry = 'akhiltejs87/backend-lms'
-    registryCredential = 'dockeruser'
-    dockerImage = ''
-
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
 }
 
 stages {
@@ -21,7 +17,7 @@ stages {
         }
     }
 
-    stage('login to docker hub account') {
+    stage('dockerhub login') {
         steps {
             sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'     
         }
