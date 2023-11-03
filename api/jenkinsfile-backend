@@ -1,9 +1,10 @@
 jenkins file
 pipeline {
     agent{
-        labels 'docker'
+        label 'docker'
     }
-enevironment {
+
+environment {
 
     DOCKERHUB_CREDENTIALS = credentials('dockeruser')
     registry = 'akhiltejs87/backend-lms'
