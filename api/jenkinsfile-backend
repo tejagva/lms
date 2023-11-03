@@ -41,14 +41,14 @@ stages {
 
     stage('creating the database container') {
         steps {
-            sh 'docker rm --force akhilteja87/lmsdb'
-            sh 'docker container run -d -p 5432:5432 --network lmsnetwork -e POSTGRES_PASSWORD-password --name lmsdb postgres'
+          
+            sh 'docker container run -d -p 5432:5432 --network lmsnetwork -e POSTGRES_PASSWORD=password --name lmsdb postgres'
         }
     }
 
     stage('creating the docker backend container') {
         steps {
-            sh 'docker rm --force akhilteja87/backend-lms'
+            
             sh 'docker container run -d -p 8080:8080 --network lmsnetwork -e DATABASE_URL=postgresql://postgres:password@lmsdb:5432/postgres --name backend-lms -e PORT=8080 -e MODE=local akhilteja87/backend-lms'
             
         }
