@@ -51,7 +51,7 @@ stages {
             sh 'docker container run -d -p 8080:8080 --network lmsnetwork -e DATABASE_URL=postgresql://postgres:password@lmsdb:5432/postgres --name backend-lms -e PORT=8080 -e MODE=local akhilteja87/backend-lms'
             
         }
+      }
     }
-
-}
+  }
 
