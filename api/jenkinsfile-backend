@@ -1,0 +1,16 @@
+jenkins file
+pipeline {
+    agent{
+        labels 'docker'
+    }
+}
+
+enevironment {
+
+    DOCKERHUB_CREDENTIALS = credentials('dockeruser')
+    registry = 'akhiltejs87/backend-lms'
+    registryCredential = 'dockeruser'
+    docker image = ''
+
+}
+
