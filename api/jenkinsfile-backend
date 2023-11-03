@@ -1,7 +1,7 @@
-jenkins file
+Jenkins file
 pipeline {
-    agent{
-        labels 'docker'
+    agent {
+        label 'docker'
     }
 
 environment {
@@ -9,7 +9,7 @@ environment {
     DOCKERHUB_CREDENTIALS = credentials('dockeruser')
     registry = 'akhiltejs87/backend-lms'
     registryCredential = 'dockeruser'
-    dockerImage = ''
+    docker image = ''
 
 }
 
@@ -50,10 +50,9 @@ stages {
         steps {
             sh 'docker rm --force akhilteja87/backend-lms'
             sh 'docker container run -d -p 8080:8080 --network lmsnetwork -e DATABASE_URL=postgresql://postgres:password@lmsdb:5432/postgres --name backend-lms -e PORT=8080 -e MODE=local akhilteja87/backend-lms'
-
+            
         }
     }
-
+  }
 }
 
-}
